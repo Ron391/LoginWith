@@ -1,0 +1,114 @@
+﻿<Window x:Class="LoginWith.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LoginWith"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="500" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     FontFamily="{DynamicResource MaterialDesignFont}">
+    <Window.Resources>
+        <Storyboard x:Key="Storyboard1">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Google">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Twitter">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="facebook1">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Google">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-168"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="Twitter">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="126"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Twitter">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-94.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="facebook1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-124.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="facebook1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-91.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Plus1">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Close">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="Plus1">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="500" RadiusY="25.616" RadiusX="25.616"/>
+        <Button x:Name="Plus1" HorizontalAlignment="Left" Height="90.401" Margin="206.866,321.429,0,0" VerticalAlignment="Top" Width="90.402" Style="{StaticResource ResourceKey=MaterialDesignFloatingActionButton}" Background="White" BorderBrush="#FFC9C9C9">
+            <StackPanel>
+                <materialDesign:PackIcon x:Name="Plus" Kind="Plus" Foreground="#DD000000" Width="32" Height="32"></materialDesign:PackIcon>
+            </StackPanel>
+        </Button>
+        <Button x:Name="Google" HorizontalAlignment="Left" Height="90.401" Margin="206.866,321.429,0,0" VerticalAlignment="Top" Width="90.402" Style="{StaticResource ResourceKey=MaterialDesignFloatingActionButton}" Background="White" BorderBrush="#FFC9C9C9" Visibility="Hidden" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <StackPanel>
+                <materialDesign:PackIcon x:Name="google" Kind="Google" Foreground="#DD000000" Width="32" Height="32"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="Twitter" HorizontalAlignment="Left" Height="90.401" Margin="206.866,321.429,0,0" VerticalAlignment="Top" Width="90.402" Style="{StaticResource ResourceKey=MaterialDesignFloatingActionButton}" Background="White" BorderBrush="#FFC9C9C9" Visibility="Hidden" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <StackPanel>
+                <materialDesign:PackIcon x:Name="twitter" Kind="Twitter" Foreground="#DD000000" Width="32" Height="32"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="facebook1" HorizontalAlignment="Left" Height="90.401" Margin="206.866,321.429,0,0" VerticalAlignment="Top" Width="90.402" Style="{StaticResource ResourceKey=MaterialDesignFloatingActionButton}" Background="White" BorderBrush="#FFC9C9C9" Visibility="Hidden" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <StackPanel>
+                <materialDesign:PackIcon x:Name="facebook" Kind="Facebook" Foreground="#DD000000" Width="32" Height="32"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="Close" HorizontalAlignment="Left" Height="90.401" Margin="206.866,321.429,0,0" VerticalAlignment="Top" Width="90.402" Style="{StaticResource ResourceKey=MaterialDesignFloatingActionButton}" Background="White" BorderBrush="#FFC9C9C9" Visibility="Hidden">
+            <StackPanel>
+                <materialDesign:PackIcon x:Name="Close1" Kind="Close" Foreground="#DD000000" Width="32" Height="32"/>
+            </StackPanel>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" Height="36" Margin="0,82.5,0,0" TextWrapping="Wrap" Text="Or Login with" VerticalAlignment="Top" Width="500" FontSize="22" TextAlignment="Center" FontFamily="Roboto Medium"/>
+
+    </Grid>
+</Window>
